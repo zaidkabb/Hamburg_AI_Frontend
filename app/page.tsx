@@ -11,11 +11,16 @@ interface Message {
 }
 
 export default function Home() {
+    const [hydrated, setHydrated] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isChatOpen, setIsChatOpen] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        setHydrated(true);
+    }, []);
 
     const scrollToBottom = () => {
         if (messagesEndRef.current) {
@@ -99,7 +104,7 @@ export default function Home() {
                 {/* Content */}
                 <div className="container relative z-10 px-6 lg:px-12 py-20 mx-auto max-w-7xl">
                     <div className="max-w-3xl">
-                        <p className="text-[#D4AF37] text-sm font-inter tracking-wider uppercase mb-6 animate-fade-in">
+                        <p className="text-[#D4AF37] text-sm font-inter tracking-wider uppercase mb-6 animate-fade-in" suppressHydrationWarning={true}>
                             Dein KI-gestützter Reiseführer
                         </p>
                         
