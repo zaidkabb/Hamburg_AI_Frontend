@@ -103,8 +103,9 @@ export default function Home() {
 
                 {/* Content */}
                 <div className="container relative z-10 px-6 lg:px-12 py-20 mx-auto max-w-7xl">
+                    {hydrated && (
                     <div className="max-w-3xl">
-                        <p className="text-[#D4AF37] text-sm font-inter tracking-wider uppercase mb-6 animate-fade-in" suppressHydrationWarning={true}>
+                        <p className="text-[#D4AF37] text-sm font-inter tracking-wider uppercase mb-6 animate-fade-in">
                             Dein KI-gestützter Reiseführer
                         </p>
                         
@@ -136,6 +137,7 @@ export default function Home() {
                             ))}
                         </div>
                     </div>
+                    )}
                 </div>
 
                 {/* Scroll Indicator */}
